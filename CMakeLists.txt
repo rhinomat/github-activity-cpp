@@ -23,10 +23,18 @@ FetchContent_Declare(
     GIT_TAG v3.12.0
 )
 
+FetchContent_Declare(
+    stb
+    GIT_REPOSITORY https://github.com/nothings/stb.git
+    GIT_TAG master
+)
+
 FetchContent_MakeAvailable(cpr json)
 
+FetchContent_Populate(stb)
+
 add_library(stb INTERFACE)
-target_include_directories(stb INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/stb)
+target_include_directories(stb INTERFACE ${stb_SOURCE_DIR})
 
 add_executable(github-activity src/main.cpp)
 
