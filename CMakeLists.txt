@@ -29,9 +29,7 @@ FetchContent_Declare(
     GIT_TAG master
 )
 
-FetchContent_MakeAvailable(cpr json)
-
-FetchContent_Populate(stb)
+FetchContent_MakeAvailable(cpr json stb)
 
 add_library(stb INTERFACE)
 target_include_directories(stb INTERFACE ${stb_SOURCE_DIR})
